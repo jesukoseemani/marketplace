@@ -74,7 +74,22 @@ function NavBar() {
 
     <div className="icon_user"  data-tip={!session ? "Sign In" : "Sign Out"}
       data-for="sidebarTooltip" onClick={!session ? signIn : signOut}>
-      <FontAwesomeIcon className="box_icon" icon={faUser} size="2x" />  
+      {!session &&  <FontAwesomeIcon className="box_icon" icon={faUser} size="2x" />  }
+      {
+        session && (
+        <div className="user_image_auth">
+        <Image
+        src={session.user.image}
+        alt="company logo"
+        width={200}
+        height={200}
+        objectFit="cover"
+        borderRadius="50%"
+        />
+        </div>
+        )
+      }
+     
     </div> 
     <ReactTooltip
         place="right"
@@ -167,6 +182,12 @@ align-items: center;
  border-radius: 50%;
  padding: 1rem;
  cursor: pointer;
+
+ .user_image_auth{
+  width: 3rem;
+  height: 3rem;
+  /* border-radius: 50%; */
+}
 }
 
 `
