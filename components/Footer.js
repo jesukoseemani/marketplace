@@ -19,6 +19,7 @@ const footerLinks = [
   {
     title: "Get to Know Us",
     list: ["About MarketPlace", "Connect with Us", "MarketPlace Cares", "Gift a Smile"],
+    id: 1
   },
   {
     title: "Make Money with Us",
@@ -31,6 +32,7 @@ const footerLinks = [
       "Host an MarketPlace Hub",
       "› See More",
     ],
+    id: 2
   },
   {
     title: "MarketPlace Payment",
@@ -40,6 +42,7 @@ const footerLinks = [
       "Reload Your Balance",
       "MarketPlace Currency Converter",
     ],
+    id: 3
   },
   {
     title: "Let Us Help You",
@@ -50,6 +53,7 @@ const footerLinks = [
       "Manage Your Devices",
       "MarketPlace Assistant",
     ],
+    id: 4
   },
 ];
 
@@ -63,11 +67,11 @@ function Footer() {
         </div>
         <div className="footer__links">
           {footerLinks.map((link) => (
-            <div className="footer__row">
+            <div className="footer__row" key={link.id}>
               <h6>{link.title}</h6>
               <ul>
-                {link.list.map((item) => (
-                  <li>{item}</li>
+                {link.list.map((item, i) => (
+                  <li key={i}>{item}</li>
                 ))}
               </ul>
             </div>
@@ -81,13 +85,13 @@ function Footer() {
           </span>
           <span className="footer__dropDownSpan">
             <select className="footer__dropDownSpan-lang">
-             {languages.map((lang) => (
-               <option value={lang}>{lang}</option>
+             {languages.map((lang, i) => (
+               <option key={i} value={lang}>{lang}</option>
              ))}
             </select>
             <select className="footer__dropDownSpan-cur">
-            {currency.map((cur) => (
-               <option value={cur}>{cur}</option>
+            {currency.map((cur, i) => (
+               <option key={i} value={cur}>{cur}</option>
              ))}
             </select>
           </span>
