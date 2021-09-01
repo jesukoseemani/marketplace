@@ -1,4 +1,4 @@
-import styled from "Styled-components"
+import styled from "styled-components"
 import {useSelector} from "react-redux"
 import Items from "./Items";
 import {useRouter} from "next/router"

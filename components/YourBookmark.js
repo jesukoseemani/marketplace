@@ -1,4 +1,4 @@
-import styled from "Styled-components"
+import styled from "styled-components"
 import {useSelector} from "react-redux"
 import Product from './Product';
 
