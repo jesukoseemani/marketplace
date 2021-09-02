@@ -31,6 +31,7 @@ export default function Home({products}) {
       <Head>
         <title>MarketPlace || shopping for all</title>
         <meta name="description" content="created by koseemani" />
+        <meta name="google-site-verification" content="Jti0f_f5eneUgrDFGMX7mD3R3G_OCD7KspjlAWfkcss" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <StyledRapper>
