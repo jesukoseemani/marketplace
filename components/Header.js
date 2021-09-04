@@ -66,7 +66,7 @@ margin-top: 3rem;
  outline: none;
  border-radius: .8rem;
  margin-left: 2rem;
- 
+ cursor: pointer;
  p{
    font-size: 1.4rem;
  }

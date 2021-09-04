@@ -7,7 +7,10 @@ function YourCart() {
   const router = useRouter()
   const { cartItems } = useSelector((state) => state.products);
 
-  const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+  const total = cartItems.reduce((acc, item) => item.price * item.quantity + acc, 0);
+
+  const length = cartItems.reduce((acc, item) => item.quantity + acc, 0);
+
   return (
     <StyledYourCart>
        <h1>Your Cart</h1>
@@ -30,7 +33,7 @@ function YourCart() {
        <h1 className="container_cart_right-checkout">Checkout</h1>
        
        <h1 className="container_cart_right-total">Sub-Total: ${total}</h1>
-       <p className="container_cart_right-number">Number of items: {cartItems.length} </p>
+       <p className="container_cart_right-number">Number of items: {length} </p>
       
        <div className="payment" onClick={() => router.push("/Ongoing")}>
         <strong>Proceed to payment</strong>

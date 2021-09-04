@@ -69,6 +69,7 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
  border: none;
  border-radius: .8rem;
  padding: 1rem;
+ margin-bottom: 1rem;
 .items_image{
   display: flex;
 justify-content: center;
