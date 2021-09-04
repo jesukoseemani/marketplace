@@ -6,15 +6,20 @@ import NavBar from '../../components/NavBar';
 import Header from '../../components/Header'
 import ProductDescription from '../../components/ProductDescription';
 import SuggestedProduct from '../../components/SuggestedProduct';
+import db from "../../firebase"
 
 
-function ProductPage() {
+function ProductPage({products}) {
   const router = useRouter()
   const { id } = router.query
   const uid = Number(id)
   
-  const product = useSelector((state) => state.products?.products?.filter((product) => product.id === uid));
-  console.log(product)
+  // const product = useSelector((state) => state.products?.products?.filter((product) => product.id === uid));
+  // console.log(product)
+
+  const product = products[0].filter((product) => product.id === uid);
+
+  
 
   return (
     <StyledHome>
@@ -39,6 +44,23 @@ function ProductPage() {
      
     </StyledHome>
   )
+}export async function getServerSideProps(context) {
+  let products = []
+  
+  const productCall = await db.collection("products")
+  .get()
+  .then((res) => {
+    products.push(res.docs.map((doc) => doc.data()));
+  }
+  )
+  .catch((err) => err.message)
+   
+
+  return {
+    props: {
+      products,
+    },
+  };
 }
 
 export default ProductPage

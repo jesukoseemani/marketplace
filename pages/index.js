@@ -17,13 +17,13 @@ export default function Home({products}) {
 
   useEffect(() => {
     
-    const items = db.collection("products")
-    .onSnapshot((snapshot) => {
-       dispatch(addToProduct(snapshot.docs.map((doc) => doc.data())))
-    });
-
+    // const items = db.collection("products")
+    // .onSnapshot((snapshot) => {
+    //    dispatch(addToProduct(snapshot.docs.map((doc) => doc.data())))
+    // });
+    dispatch(addToProduct(products[0]))
   
-  },[dispatch])
+  },[products, dispatch])
 
 
   return (
