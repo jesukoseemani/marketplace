@@ -3,9 +3,9 @@ import { shuffleArray } from "../util";
 import Product from "../components/Product"
 import styled from "styled-components"
 
-function SuggestedProduct() {
+function SuggestedProduct({products}) {
 
-  const {products} = useSelector((state) => state.products);
+  // const {products} = useSelector((state) => state.products);
 
   // let shuffleArray = shuffleArray()
  
@@ -13,7 +13,7 @@ function SuggestedProduct() {
     <>
     <h2>You might also like</h2>
     <StyledSuggest>
-      {shuffleArray(products).slice(0, 6).map((data) => (
+      {shuffleArray(products[0]).slice(0, 6).map((data) => (
         <Product key={data.id} 
           title={data.title} 
           price={data.price} 

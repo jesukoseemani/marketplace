@@ -37,7 +37,7 @@ function ProductPage({products}) {
     <StyledMain>
      <Header />
      <ProductDescription product={product}/>
-     <SuggestedProduct />
+     <SuggestedProduct products={products}/>
     </StyledMain>
     
     </StyledRapper>
