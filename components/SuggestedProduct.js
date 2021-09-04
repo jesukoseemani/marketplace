@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { shuffleArray } from "../util";
 import Product from "../components/Product"
 import styled from "styled-components"
