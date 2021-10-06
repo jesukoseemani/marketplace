@@ -4,10 +4,17 @@ import logo from '../assets/img/MART.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { navInOut } from '../redux/productSlice';
 
-function Header({ navInOut, setNavInOut }) {
+function Header() {
 	const router = useRouter();
+	const dispatch = useDispatch();
+	const { trigger } = useSelector((state) => state.products);
 
+	const changeNavHandler = () => {
+		dispatch(navInOut(true));
+	};
 	return (
 		<StyledHeader>
 			<div className='back_button' onClick={() => router.back()}>
@@ -16,8 +23,8 @@ function Header({ navInOut, setNavInOut }) {
 
 			<div
 				className='bars'
-				style={{ visibility: navInOut ? 'hidden' : 'visible' }}
-				onClick={() => setNavInOut(true)}>
+				style={{ visibility: trigger ? 'hidden' : 'visible' }}
+				onClick={changeNavHandler}>
 				<FontAwesomeIcon className='bars__icon' icon={faBars} size='2x' />
 			</div>
 

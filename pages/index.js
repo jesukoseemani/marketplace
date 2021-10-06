@@ -11,13 +11,15 @@ import {
 } from '../StyledComponents';
 import db from '../firebase';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToProduct, addToCart } from '../redux/productSlice';
 import Footer from '../components/Footer';
 
 export default function Home({ products }) {
 	const dispatch = useDispatch();
-	const [navInOut, setNavInOut] = useState(false);
+
+	const { trigger } = useSelector((state) => state.products);
+
 	useEffect(() => {
 		// const items = db.collection("products")
 		// .onSnapshot((snapshot) => {
@@ -47,14 +49,14 @@ export default function Home({ products }) {
 			<StyledRapper>
 				<StyledNav
 					style={{
-						width: navInOut ? '10rem' : '-10rem',
-						display: navInOut ? 'block' : '',
+						width: trigger ? '10rem' : '-10rem',
+						display: !trigger ? 'block' : '',
 					}}>
-					<NavBar navInOut={navInOut} setNavInOut={setNavInOut} />
+					<NavBar />
 				</StyledNav>
 
-				<StyledMain style={{ margin: navInOut ? '0rem -3rem' : '0rem 3rem' }}>
-					<Header navInOut={navInOut} setNavInOut={setNavInOut} />
+				<StyledMain style={{ margin: trigger ? '0rem -3rem' : '0rem 3rem' }}>
+					<Header />
 					<Slider />
 					<Products products={products} />
 					<Footer />

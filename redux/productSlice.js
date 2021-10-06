@@ -5,6 +5,7 @@ const initialState = {
 	products: [],
 	cartItems: [],
 	bookmark: [],
+	trigger: null,
 };
 
 export const productReducer = createSlice({
@@ -68,6 +69,9 @@ export const productReducer = createSlice({
 
 			localStorage.setItem('bookmark', JSON.stringify(state.bookmark));
 		},
+		navInOut: (state, action) => {
+			state.trigger = action.payload;
+		},
 		// addTocontent: (state, action) => {
 		// 	let newCart = [...state.cartItems];
 
@@ -93,5 +97,6 @@ export const {
 	removeFromCart,
 	addToBookmark,
 	removeFromBookmark,
+	navInOut,
 } = productReducer.actions;
 export default productReducer.reducer;

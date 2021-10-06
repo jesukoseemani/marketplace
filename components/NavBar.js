@@ -12,15 +12,22 @@ import {
 import ReactTooltip from 'react-tooltip';
 import Image from 'next/image';
 import martlogo from '../assets/img/MARTLOGO.png';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signIn, signOut, useSession } from 'next-auth/client';
+import { navInOut } from '../redux/productSlice';
 
-function NavBar({ navInOut, setNavInOut }) {
+function NavBar() {
 	const { cartItems, bookmark } = useSelector((state) => state.products);
 	const [session] = useSession();
+
+	const dispatch = useDispatch();
+
+	const changeNavHandler = () => {
+		dispatch(navInOut(false));
+	};
 	return (
-		<StyledNav>
-			<div className='times' onClick={() => setNavInOut(false)}>
+		<StyledNav onClick={changeNavHandler}>
+			<div className='times'>
 				<FontAwesomeIcon
 					className='times__style'
 					icon={faTimesCircle}
