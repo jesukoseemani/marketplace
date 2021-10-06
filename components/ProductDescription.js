@@ -27,7 +27,7 @@ function ProductDescription({ product }) {
 		const bIndex = reduxItems.bookmark.findIndex(
 			(item) => item.id === product[0].id
 		);
-		console.log(bIndex, reduxItems.bookmark);
+
 		if (bIndex >= 0) {
 			setBookmark(true);
 		} else {
@@ -37,7 +37,7 @@ function ProductDescription({ product }) {
 		const cIndex = reduxItems.cartItems.findIndex(
 			(item) => item.id === product[0].id
 		);
-		console.log(cIndex, reduxItems.cartItems);
+
 		if (cIndex >= 0) {
 			setContent(true);
 		} else {

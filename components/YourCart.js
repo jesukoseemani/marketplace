@@ -1,12 +1,14 @@
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Items from './Items';
 import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/client';
+// import { useEffect } from 'react';
 
 function YourCart() {
 	const router = useRouter();
 	const [session] = useSession();
+	const dispatch = useDispatch();
 	const { cartItems } = useSelector((state) => state.products);
 
 	const total = cartItems.reduce(
@@ -65,6 +67,10 @@ const StyledYourCart = styled.div`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
+		@media (max-width: 1050px) {
+			flex-direction: column;
+		}
 	}
 	.container_cart_left {
 		flex: 1;
