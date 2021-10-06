@@ -1,52 +1,57 @@
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-html{
-font-size: 10px;
+html {
+	font-size: 10px;
 }
 
-html::-webkit-scrollbar{
-  width: .7rem;
+@media (max-width: 460px) {
+	html {
+		font-size: 8px;
+	}
 }
 
-html::-webkit-scrollbar-thumb{
-  background-color: #FF9900;
+html::-webkit-scrollbar {
+	width: 0.7rem;
+}
+
+html::-webkit-scrollbar-thumb {
+	background-color: #ff9900;
 }
 
 html::-webkit-scrollbar-track {
-background: white;
+	background: white;
 }
 
-body{
-  font-family: 'lato', sans-serif;
-  background-color: rgb(255, 253, 253);
+body {
+	font-family: 'lato', sans-serif;
+	background-color: rgb(255, 253, 253);
 }
 
-a{
-text-decoration: none;
-font-size: 1.1rem;
+a {
+	text-decoration: none;
+	font-size: 1.1rem;
 }
 
 ul {
-list-style: none;
-width:100%;
+	list-style: none;
+	width: 100%;
 }
 
-h3{
-font-size: 1.7rem;
-color: #333;
+h3 {
+	font-size: 1.7rem;
+	color: #333;
 }
 
-h4{
-font-size: 1.4rem;
-color: #333;
+h4 {
+	font-size: 1.4rem;
+	color: #333;
 }
 
-h2{
-  font-size: 2rem;
-  margin-left: 3rem;
+h2 {
+	font-size: 2rem;
+	margin-left: 3rem;
 }

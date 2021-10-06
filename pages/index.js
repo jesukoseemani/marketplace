@@ -31,7 +31,7 @@ export default function Home({ products }) {
 	useEffect(() => {
 		const getItemFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
 		console.log(getItemFromLocalStorage);
-		if (getItemFromLocalStorage !== null)
+		if (getItemFromLocalStorage)
 			dispatch(addToCart(...getItemFromLocalStorage));
 	}, [dispatch]);
 
@@ -50,7 +50,7 @@ export default function Home({ products }) {
 				<StyledNav
 					style={{
 						width: trigger ? '10rem' : '-10rem',
-						display: !trigger ? 'block' : '',
+						display: trigger ? 'block' : '',
 					}}>
 					<NavBar />
 				</StyledNav>

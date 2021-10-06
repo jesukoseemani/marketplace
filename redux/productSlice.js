@@ -38,14 +38,16 @@ export const productReducer = createSlice({
 			if (itemIndex >= 0) {
 				if (newCart[itemIndex].quantity > 1) {
 					newCart[itemIndex].quantity -= 1;
+
+					localStorage.setItem('cart', JSON.stringify(newCart));
 				} else {
 					newCart.splice(itemIndex, 1);
+					localStorage.removeItem('cart');
 				}
 			} else {
 				console.warn('Item Not Found');
 			}
 
-			localStorage.setItem('cart', JSON.stringify(newCart));
 			state.cartItems = newCart;
 
 			// const itemIndex = state.cartItems.findIndex(
