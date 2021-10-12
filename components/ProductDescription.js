@@ -24,7 +24,7 @@ function ProductDescription({ product }) {
 	const router = useRouter();
 
 	useEffect(() => {
-		const bIndex = reduxItems.bookmark.findIndex(
+		const bIndex = reduxItems?.bookmark.findIndex(
 			(item) => item.id === product[0].id
 		);
 
@@ -34,7 +34,7 @@ function ProductDescription({ product }) {
 			setBookmark(false);
 		}
 
-		const cIndex = reduxItems.cartItems.findIndex(
+		const cIndex = reduxItems?.cartItems.findIndex(
 			(item) => item.id === product[0].id
 		);
 
