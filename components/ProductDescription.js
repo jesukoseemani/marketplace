@@ -24,9 +24,9 @@ function ProductDescription({ product }) {
 	const router = useRouter();
 
 	useEffect(() => {
-		const bIndex = reduxItems?.bookmark.findIndex(
-			(item) => item.id === product[0].id
-		);
+		const bIndex = reduxItems.bookmark
+			? reduxItems.bookmark.findIndex((item) => item.id === product[0].id)
+			: null;
 
 		if (bIndex >= 0) {
 			setBookmark(true);
@@ -34,9 +34,9 @@ function ProductDescription({ product }) {
 			setBookmark(false);
 		}
 
-		const cIndex = reduxItems?.cartItems.findIndex(
-			(item) => item.id === product[0].id
-		);
+		const cIndex = reduxItems.cartItems
+			? reduxItems.cartItems.findIndex((item) => item.id === product[0].id)
+			: null;
 
 		if (cIndex >= 0) {
 			setContent(true);
